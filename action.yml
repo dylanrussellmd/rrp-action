@@ -1,0 +1,17 @@
+name: 'Build Manuscript'
+description: 'Build a manuscript from a repository'
+
+inputs:
+  image_version:
+    description: "Which RRP image version to use"
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v2
+    - uses: addnab/docker-run-action@v3
+      with: 
+        registry: ghcr.io
+        image: dylanrussellmd/rrp:latest
+        run: echo $(ls)
