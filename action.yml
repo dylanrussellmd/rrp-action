@@ -2,6 +2,9 @@ name: 'Build Manuscript'
 description: 'Build a manuscript from a repository'
 
 inputs:
+  token:
+    description: "A GitHub PAT"
+    required: true
   image_version:
     description: "Which RRP image version to use"
     required: true
@@ -14,6 +17,6 @@ runs:
       with: 
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        image: rrp:latest
+        password: ${{ inputs.token }}
+        image: rrp:${{ inputs.image_version }}
         run: echo $(ls)
