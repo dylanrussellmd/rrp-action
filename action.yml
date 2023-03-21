@@ -13,5 +13,7 @@ runs:
     - uses: addnab/docker-run-action@v3
       with: 
         registry: ghcr.io
-        image: dylanrussellmd/rrp:latest
+        username: ${{ github.actor }}
+        password: ${{ secretes.GITHUB_TOKEN }}
+        image: rrp:latest
         run: echo $(ls)
