@@ -18,5 +18,5 @@ runs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ inputs.token }}
-        image: dylanrussellmd/rrp:v${{ inputs.image_version }}
+        image: ghcr.io/dylanrussellmd/rrp:v${{ inputs.image_version }}
         run: echo $(ls)
